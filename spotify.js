@@ -8,7 +8,10 @@ var moment = require("moment");
 
 function findSong(song) {
   spotify
-    .search({ type: "track", query: "All the Small Things" })
+    .search({
+      type: "track",
+      query: "All the Small Things"
+    })
     .then(function(response) {
       console.log(response);
     })
@@ -16,4 +19,6 @@ function findSong(song) {
       console.log(err);
     });
 }
-findSong(process.argv[2]);
+
+// findSong(process.argv.slice(2).join(" "));
+findSong();
