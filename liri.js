@@ -63,10 +63,19 @@ var spotifySearch = function(song) {
   spotify
     .search({
       type: "track",
-      query: "All the Small Things"
+      query: song
     })
     .then(function(response) {
-      console.log(response);
+      for (var i = 0; i < response.tracks.items.length; i++) {
+        console.log(i);
+        console.log("Song Name: " + response.tracks.items[i].name);
+        console.log(
+          "Artist: " + response.tracks.items[i].album.artists[0].name
+        );
+        console.log("Album: " + response.tracks.items[i].album.name);
+        console.log("Preview Song: " + response.tracks.items[i].preview_url);
+        console.log("----------------------------");
+      }
     })
     .catch(function(err) {
       console.log(err);
